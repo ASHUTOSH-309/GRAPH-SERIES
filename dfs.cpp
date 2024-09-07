@@ -3,12 +3,14 @@
 
 using namespace std;
 
+//changing the starting node will store different possible dfs orders in the ans vector 
 void dfs(int node, vector<vector<int>> graph, vector<bool> &visited, vector<int>& ans)
 {
     visited[node] = true;
     ans.push_back(node);
     for (auto it : graph[node])
     {
+        //Not tracking the nodes being visited or not will lead to an infinite loop 
         if (!visited[it])
         {
             dfs(it, graph, visited, ans);
